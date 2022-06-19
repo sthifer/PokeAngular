@@ -1,0 +1,13 @@
+<div class="imagen">
+  <img
+    [src]="pokemon.sprites.other.dream_world.front_default"
+    alt="{{ pokemon.name }}"
+    width="100px"
+    height="125px"
+  />
+</div>
+<h2>{{ pokemon.name }}</h2>
+<div class="info">
+  <p>Nº {{ pokemon.id }}</p>
+  <p>{{ pokemon.types[0].type.name }}</p>
+</div>
