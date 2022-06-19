@@ -9,25 +9,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BodyComponent implements OnInit {
 
-  listPokemon:any = []
+  listPokemon:any = [];
+  pickPokemon:number =0;
   private ApiUrl:string = 'https://pokeapi.co/api/v2/pokemon/';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getList();
-    console.log('listo');
-    
   }
 
   getPokemon(id:number){
-    //console.log(this.ApiUrl+id);
-    
     return this.http.get(this.ApiUrl+id);
   }
 
   getList(){
-    for(let i=1; i<150;i++){
+    for(let i=1; i<=151;i++){
 
       this.getPokemon(i).subscribe( (list:any) => {
         this.listPokemon = [...this.listPokemon,list].sort((a,b) => a.id - b.id);
@@ -35,5 +32,9 @@ export class BodyComponent implements OnInit {
       }
 
     };
+
+    flip(id:number){
+      this.pickPokemon=id;
+    }
 
 }

@@ -1,0 +1,16 @@
+
+.imagen{
+    height: 125px;
+}
+.info{
+    display: flex;
+    justify-content: space-around;
+}
+.info p{
+    border: 2px solid black;
+    border-radius: 40px;
+    padding: 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+    background-color: #FFF;
+}

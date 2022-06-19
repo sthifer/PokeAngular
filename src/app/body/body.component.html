@@ -2,6 +2,8 @@
   <app-card
     *ngFor="let pokemon of listPokemon"
     [pokemon]="pokemon"
-    class="card"
+    [pickPokemon]="pickPokemon"
+    (click)="flip(pokemon.id)"
+    class="card {{ pokemon.id }}"
   ></app-card>
 </div>

@@ -1,13 +1,35 @@
-<div class="imagen">
-  <img
-    [src]="pokemon.sprites.other.dream_world.front_default"
-    alt="{{ pokemon.name }}"
-    width="100px"
-    height="125px"
-  />
+<div *ngIf="pickPokemon !== pokemon.id">
+  <div class="imagen">
+    <img
+      [src]="pokemon.sprites.other.dream_world.front_default"
+      alt="{{ pokemon.name }}"
+      width="100px"
+      height="125px"
+    />
+  </div>
+  <h2>{{ pokemon.name }}</h2>
+  <div class="info">
+    <p>Nº {{ pokemon.id }}</p>
+    <p>{{ pokemon.types[0].type.name }}</p>
+  </div>
 </div>
-<h2>{{ pokemon.name }}</h2>
-<div class="info">
-  <p>Nº {{ pokemon.id }}</p>
-  <p>{{ pokemon.types[0].type.name }}</p>
+
+<div *ngIf="pickPokemon === pokemon.id">
+  <h1>{{ pokemon.name }}</h1>
+  <p *ngIf="pokemon.abilities[0]">
+    1ª Habilidad: <span>{{ pokemon.abilities[0].ability.name }}</span>
+  </p>
+  <p *ngIf="pokemon.abilities[1]">
+    2ª Habilidad: <span>{{ pokemon.abilities[1].ability.name }}</span>
+  </p>
+
+  <p *ngIf="pokemon.stats[0].base_stat">
+    HP: <span>{{ pokemon.stats[0].base_stat }}</span>
+  </p>
+  <p *ngIf="pokemon.stats[1].base_stat">
+    Ataque: <span>{{ pokemon.stats[1].base_stat }}</span>
+  </p>
+  <p *ngIf="pokemon.stats[2].base_stat">
+    Defensa: <span>{{ pokemon.stats[2].base_stat }}</span>
+  </p>
 </div>
